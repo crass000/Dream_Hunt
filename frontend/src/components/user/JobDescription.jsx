@@ -18,10 +18,11 @@ export default function JobDescription() {
       (application) => application.applicant === user?._id
     ) || false;
   const [isApplied, setIsApplied] = useState(isInitiallyApplied);
+
   const applyJobHandler = async () => {
     try {
       const res = await axios.get(
-        "https://dream-hunt-1.onrender.com/api/v1/application/apply/${jobId}",
+        `https://dream-hunt-1.onrender.com/api/v1/application/apply/${jobId}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -35,15 +36,17 @@ export default function JobDescription() {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "An error occurred");
     }
   };
+
   useEffect(() => {
     const fetchSingleJob = async () => {
       try {
-        const res = await axios.get("https://dream-hunt-1.onrender.com/api/v1/job/get/${jobId}", {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `https://dream-hunt-1.onrender.com/api/v1/job/get/${jobId}`,
+          { withCredentials: true }
+        );
         if (res.data.success) {
           dispatch(setSingleJob(res.data.job));
           setIsApplied(
