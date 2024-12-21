@@ -1,4 +1,3 @@
-import { APPLICATION_API_END_POINT } from "@/utils/constant";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
@@ -12,7 +11,7 @@ export default function useGetAllApplicants() {
     const fetchAllApplicants = async () => {
       try {
         const res = await axios.get(
-          `${APPLICATION_API_END_POINT}/${params.id}/applicants`,
+         "https://dream-hunt-1.onrender.com/api/v1/application/${params.id}/applicants",
           { withCredentials: true }
         );
         if (res.data.success) {

@@ -2,7 +2,6 @@ import { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setAllJobs } from "@/redux/jobSlice";
-import { JOB_API_END_POINT } from "@/utils/constant";
 
 export default function useGetAllJobs() {
   const dispatch = useDispatch();
@@ -15,7 +14,7 @@ export default function useGetAllJobs() {
     setIsLoading(true);
     setError(null);
     try {
-      let url = `${JOB_API_END_POINT}/get`;
+      let url = "https://dream-hunt-1.onrender.com/api/v1/job/get";
       if (searchedQuery) {
         url = `${url}?keyword=${searchedQuery}`;
       }

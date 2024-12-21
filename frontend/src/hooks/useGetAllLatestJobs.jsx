@@ -1,5 +1,4 @@
 import { setAllLatestJobs } from "@/redux/jobSlice";
-import { JOB_API_END_POINT } from "@/utils/constant";
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -9,7 +8,7 @@ export default function useGetAllLatestJobs() {
   useEffect(() => {
     const fetchAllLatestJobs = async () => {
       try {
-        const res = await axios.get(`${JOB_API_END_POINT}/get`, {
+        const res = await axios.get("https://dream-hunt-1.onrender.com/api/v1/job/get", {
           withCredentials: true,
         });
         if (res.data.success) {

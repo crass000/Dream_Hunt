@@ -4,7 +4,6 @@ import Navbar from "../shared/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { COMPANY_API_END_POINT } from "@/utils/constant";
 import axios from "axios";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
@@ -16,7 +15,7 @@ export default function CompanyCreate() {
   const dispatch = useDispatch();
   const registerNewCompany = async () => {
     try {
-      const res = await axios.post(`${COMPANY_API_END_POINT}/register`,{companyName},{
+      const res = await axios.post("https://dream-hunt-1.onrender.com/api/v1/company/register",{companyName},{
         headers:{
           "Content-Type" : "application/json"
         },

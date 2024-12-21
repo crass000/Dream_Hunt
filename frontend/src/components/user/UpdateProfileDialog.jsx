@@ -11,7 +11,6 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { USER_API_END_POINT } from "@/utils/constant";
 import { setUser } from "@/redux/authSlice";
 import { toast } from "sonner";
 import axios from "axios";
@@ -57,7 +56,7 @@ export default function UpdateProfileDialog({ open, setOpen }) {
       }
 
       const res = await axios.post(
-        `${USER_API_END_POINT}/profile/update`,
+        "https://dream-hunt-1.onrender.com/api/v1/user/profile/update",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
