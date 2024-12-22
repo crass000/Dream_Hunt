@@ -46,12 +46,16 @@ export default function Signup() {
     }
     try {
       dispatch(setLoading(true));
-      const res = await axios.post("https://dream-hunt-1.onrender.com/api/v1/user/register", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "https://dream-hunt-1.onrender.com/api/v1/user/register",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         navigate("/login");
         toast.success(res.data.message);
@@ -100,13 +104,18 @@ export default function Signup() {
           <div className="my-2">
             <Label>Phone Number</Label>
             <Input
-              type="text"
+              type="number" // Restricts input to numbers
               value={input.phoneNumber}
               name="phoneNumber"
-              onChange={changeEventHandler}
+              onChange={(e) => {
+                if (e.target.value.length <= 10) {
+                  changeEventHandler(e); // Calls your handler if the length is valid
+                }
+              }}
               placeholder="Enter your phone number"
             />
           </div>
+
           <div className="my-2">
             <Label>Password</Label>
             <Input
