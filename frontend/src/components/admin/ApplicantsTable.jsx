@@ -37,7 +37,7 @@ export default function ApplicantsTable() {
   const statusHandler = async (status, id) => {
     try {
       const res = await axios.post(
-        "https://dream-hunt-1.onrender.com/api/v1/application/status/${id}/update",
+        `https://dream-hunt-1.onrender.com/api/v1/application/status/${id}/update`,
         { status },
         { withCredentials: true }
       );
