@@ -11,7 +11,7 @@ export default function useGetAllApplicants() {
     const fetchAllApplicants = async () => {
       try {
         const res = await axios.get(
-         "https://dream-hunt-1.onrender.com/api/v1/application/${params.id}/applicants",
+         `https://dream-hunt-1.onrender.com/api/v1/application/${params.id}/applicants`,
           { withCredentials: true }
         );
         if (res.data.success) {

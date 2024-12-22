@@ -9,7 +9,7 @@ export default function useGetCompanyById(companyId) {
     const fetchSingleCompany = async () => {
       try {
         const res = await axios.get(
-          "https://dream-hunt-1.onrender.com/api/v1/company/get/${companyId}",
+          `https://dream-hunt-1.onrender.com/api/v1/company/get/${companyId}`,
           { withCredentials: true }
         );
         if (res.data.success) {

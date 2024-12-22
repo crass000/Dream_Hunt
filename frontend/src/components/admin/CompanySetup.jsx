@@ -48,7 +48,7 @@ export default function CompanySetup() {
     try {
       setLoading(true);
       const res = await axios.put(
-       "https://dream-hunt-1.onrender.com/api/v1/company/update/${params.id}",
+       `https://dream-hunt-1.onrender.com/api/v1/company/update/${params.id}`,
         formData,
         {
           headers: {
